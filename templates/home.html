@@ -6,6 +6,22 @@
 
 {% block content %}
 
+<div class="jumbotron">
+
+  <h1 class="display-4">Kdrama-Stans</h1>
+
+  <p class="lead">Let's share our love for Kdramas together.</p>
+
+  <p class="lead">
+
+    <a class="btn btn-primary btn-lg" href="{% url 'article_list' %}"
+
+    role="button">View All Articles</a>
+
+  </p>
+
+</div>
+
 {% if user.is_authenticated %}
 
   Hi {{ user.username }}!
