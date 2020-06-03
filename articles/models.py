@@ -7,6 +7,9 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 
 from django.urls import reverse
+from django_comments.models import Comment as CommentModel
+
+from django_comments.moderation import CommentModerator, moderator # new
 
 class Article(models.Model):
     
@@ -32,7 +35,8 @@ class Article(models.Model):
         
         return reverse('article_detail', args=[str(self.id)])
     
-class Comment(models.Model): # new
+    
+class CustomComment(CommentModel): # new
     
     article = models.ForeignKey(
         
@@ -44,19 +48,20 @@ class Comment(models.Model): # new
         
     )
     
-    comment = models.CharField(max_length=140)
     
     author = models.ForeignKey(
         
         get_user_model(),
         
         on_delete=models.CASCADE,
-    
+        
     )
+    
     
     def __str__(self): 
         
         return self.comment
+
     
     def get_absolute_url(self):
         

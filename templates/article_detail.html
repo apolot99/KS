@@ -4,6 +4,8 @@
 
 {% block content %}
 
+{% load comments %}
+
 <div class="article-entry">
 
   <h2>{{ object.title }}</h2>
@@ -16,8 +18,12 @@
 
   <p><a href="{% url 'article_edit' article.pk %}">Edit</a> |
 
-    <a href="{% url 'article_delete' article.pk %}">Delete</a></p>
+    <a href="{% url 'article_delete' article.pk %}">Delete</a> |
+    
+    {% get_comment_count for articles.article article.pk as comment_count %}
+   {{ comment_count }} comments </p>
 
   <p>Back to <a href="{% url 'article_list' %}">All articles</a>.</p>
+
 
 {% endblock content %}

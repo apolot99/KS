@@ -1,0 +1,20 @@
+<!-- templates/comments/list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% render_comment_list for articles.article article.pk %}
+
+{% get_comment_list for articles.article article.pk as comment_list %}
+
+{% for comment in comment_list %}
+  
+  <p>Posted by: {{ comment.user_name }} on {{ comment.submit_date }}</p>
+
+  <p>Comment: {{ comment.comment }}</p>
+
+{% endfor %}
+
+{% endblock content %}
+

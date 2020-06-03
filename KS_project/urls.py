@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include # new
-
+from django.conf.urls import url # new
+from django_comments.feeds import LatestCommentFeed # new
 urlpatterns = [
     
     path('admin/', admin.site.urls),
@@ -27,5 +28,9 @@ urlpatterns = [
     path('articles/', include('articles.urls')), # new
     
     path('', include('pages.urls')), # new
+    
+    # url(r'^comments/', include('django_comments.urls')), # new
+    
+    # url(r'^feeds/latest/$', LatestCommentFeed()), # new
         
 ]

@@ -2,11 +2,11 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Article, Comment # new
+from .models import Article, CustomComment # new
 
 class CommentInline(admin.TabularInline): # new
     
-    model = Comment
+    model = CustomComment
     
 class ArticleAdmin(admin.ModelAdmin): # new
     
@@ -18,4 +18,4 @@ class ArticleAdmin(admin.ModelAdmin): # new
 
 admin.site.register(Article, ArticleAdmin) # new
 
-admin.site.register(Comment) # new
+admin.site.register(CustomComment) # new

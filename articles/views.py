@@ -82,4 +82,5 @@ class ArticleCreateView(LoginRequiredMixin, CreateView): # new
         form.instance.author = self.request.user
         
         return super().form_valid(form)
+
     

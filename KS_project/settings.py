@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# For some reason I need site_id
+
+SITE_ID = 1
+
 
 # Application definition
 
@@ -37,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django_comments',
     
     # 3rd Party
     'crispy_forms', # new
